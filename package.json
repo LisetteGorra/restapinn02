@@ -1,0 +1,19 @@
+{
+  "name": "restapinn02",
+  "version": "1.0.0",
+  "description": "REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LisetteGorra/restapinn02.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LisetteGorra/restapinn02/issues"
+  },
+  "homepage": "https://github.com/LisetteGorra/restapinn02#readme"
+}

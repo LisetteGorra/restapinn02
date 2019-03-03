@@ -20,8 +20,6 @@ What is REST API?
 - Twitter
 - Uber
 
-
-
 ---------------------------------------------------
 - What are these properties 
 -They make use of resource-based URL's (webpage/json)
@@ -37,4 +35,4 @@ What is REST API?
 - 404 means resource not found 
 - 500 means server error 
 
-
+---------------------------------------------------
