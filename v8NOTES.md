@@ -46,3 +46,34 @@ next create ninja Schema and model
 inside this code block we will define how we want our object to lok by assigning properties and values
     
 });
+
+- const NinjaSchema = new Schema({
+    name: {
+        type: String,
+        required: [true, 'Name field is required']
+    },
+    rank: {
+        type: String
+    },
+    available: {
+        type: Boolean,
+        default: false
+    }
+    //add in geo location
+   
+});
+
+above we created our structure defined of how our ninja onjects will look
+
+now we create a ninja model which will represent a collection in the data base 
+
+- const Ninja = mongoose.model('ninja');
+
+now we want the object within the collection to be based on the onject within the ninja schema 
+so we pass the ninja schema next 
+
+- const Ninja = mongoose.model('ninja', NinjaSchema);
+
+now we can export it so we can accesss it from other files later on 
+
+- module.exports = Ninja;
