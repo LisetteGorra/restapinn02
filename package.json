@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/LisetteGorra/restapinn02#readme",
   "dependencies": {
+    "body": "^5.1.0",
     "express": "^4.16.4",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "parser": "^0.1.4"
   }
 }

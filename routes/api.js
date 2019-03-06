@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
+
 //get a list of ninjas from the database
 router.get('/ninjas', function(req, res){
     res.send({type:"GET"});
@@ -10,7 +11,12 @@ router.get('/ninjas', function(req, res){
 
 //add a new ninjas to the data base
 router.post('/ninjas', function(req, res){
-    res.send({type:"POST"});
+    console.log(req.body);
+    res.send({
+        type:"POST",
+        name: req.body.name,
+        rank: req.body.rank
+    });
     
 });
 
