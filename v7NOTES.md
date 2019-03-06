@@ -69,3 +69,5 @@ it should look like this
         name: req.body.name,
         rank: req.body.rank
     });
+
+now we have succesfully accesed the body of this post handler through thte body 
