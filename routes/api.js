@@ -4,7 +4,7 @@ const Ninja = require('../models/ninja.js');
 
 
 //get a list of ninjas from the database
-router.get('/ninjas', function(req, res){
+router.get('/ninjas', function(req, res, next){
     res.send({type:"GET"});
     
 });
@@ -19,13 +19,13 @@ router.post('/ninjas', function(req, res, next){
 });
 
 //update a ninja in the data base
-router.put('/ninjas/:id', function(req, res){
+router.put('/ninjas/:id', function(req, res, next){
     res.send({type:"PUT"});
     
 });
 
 //delete a ninja from the database
-router.delete('/ninjas/:id', function(req, res){
+router.delete('/ninjas/:id', function(req, res, next){
     res.send({type:"DELETE"});
     
 });

@@ -16,10 +16,16 @@ app.use(bodyParser.json());
 
 app.use('/api',routes('./routes/api'));
 
-app.get('/api', function(req, res){
-    console.log('GET request');
-    res.end({name: "Lisette"});
+//error handling middleware 
+app.use(function(err,req,res,next){
+    // console.log(err);
+    res.status(422).send({error:err.message});
 });
+
+// app.get('/api', function(req, res){
+//     console.log('GET request');
+//     res.end({name: "Lisette"});
+// });
 
 //listen for requests 
 //   app.listen(process.env.port || 4000, function(){
