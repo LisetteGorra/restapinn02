@@ -11,12 +11,9 @@ router.get('/ninjas', function(req, res){
 
 //add a new ninjas to the data base
 router.post('/ninjas', function(req, res){
-    var ninja = new Ninja(req.body);
-    ninja.save();
-    res.send({
-        type:"POST",
-        name: req.body.name,
-        rank: req.body.rank
+   Ninja.create(req.body).then(function(ninja){
+   res.send(ninja);
+       
     });
     
 });

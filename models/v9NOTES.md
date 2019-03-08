@@ -45,3 +45,28 @@ so we just add the requst body into 1st parameter
 
 and we can save it to the database in the ninja collection by:
 - ninja.save();
+
+---------------------------------------------
+we can shorten this up by using a mongoose method ninja.create .... instead of creating new instance and saving seperatly ... 
+
+- Ninja.create(req.body);
+
+this will access the Ninja model and create it, and require body in parameter
+
+this will replace the new instance and save method 
+
+this .create will automatically save
+---------------------------------------------
+--------------------------------------------
+we want to make sure the create method fires up and completes its execution, and happens correctly before we send our responce and add more code 
+
+we need to wait for the create method to complete, and because it returns to us a promise, we can use the .then method 
+
+.then will take a function as a parameter and that will give us the data it has saved to the database
+
+- Ninja.create(req.body).then(function(ninja){
+   res.send(ninja); 
+});
+
+we can send our response in this function, so we delete the response already there and send back the ninja that we already saved to the database 
+
