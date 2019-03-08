@@ -10,11 +10,11 @@ router.get('/ninjas', function(req, res){
 });
 
 //add a new ninjas to the data base
-router.post('/ninjas', function(req, res){
+router.post('/ninjas', function(req, res, next){
    Ninja.create(req.body).then(function(ninja){
    res.send(ninja);
        
-    });
+    }).catch(next);
     
 });
 
