@@ -4,40 +4,41 @@ const Ninja = require('../models/ninja.js');
 
 
 //get a list of ninjas from the database
-router.get('/ninjas', function(req, res, next){
-   Ninja.geoNear(
-       {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat.que.lat)]}
-       );
-    res.send({type:"GET"});
-    
+router.get('/ninjas', function(req, res, next) {
+    Ninja.geoNear(
+        {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat.(req.query.lat)]},
+        {maxDistance: 1000000, spherical: true}
+        ).then(function(ninjas) {
+        res.send(ninjas);
+        res.send({ type: "GET" });
+    });
 });
 
 //add a new ninjas to the data base
-router.post('/ninjas', function(req, res, next){
-   Ninja.create(req.body).then(function(ninja){
-   res.send(ninja);
-       
+router.post('/ninjas', function(req, res, next) {
+    Ninja.create(req.body).then(function(ninja) {
+        res.send(ninja);
+
     }).catch(next);
-    
+
 });
 
 //update a ninja in the data base
-router.put('/ninjas/:id', function(req, res, next){
-    Ninja.findByIdAndUpdate({_id:req.params.id}, req.body).then(function(){
-      Ninja.findOne({_id:req.params.id}).then(function(ninja){
-      res.send(ninja);  
-   
-      });
-   });
+router.put('/ninjas/:id', function(req, res, next) {
+    Ninja.findByIdAndUpdate({ _id: req.params.id }, req.body).then(function() {
+        Ninja.findOne({ _id: req.params.id }).then(function(ninja) {
+            res.send(ninja);
+
+        });
+    });
 });
 
 //delete a ninja from the database
-router.delete('/ninjas/:id', function(req, res, next){
-   Ninja.findByIdAndRemove({_id: req.params.id}).then(function(ninja){
-    res.send(ninja);
-   });
-   
+router.delete('/ninjas/:id', function(req, res, next) {
+    Ninja.findByIdAndRemove({ _id: req.params.id }).then(function(ninja) {
+        res.send(ninja);
+    });
+
 });
 
 module.exports = router;
-
